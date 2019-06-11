@@ -1,29 +1,34 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="root">
+    <v-app>
+      <nav-bar></nav-bar>
+      <v-content>
+        <v-container fluid>
+          <v-slide-x-transition mode="in-out">
+            <router-view></router-view>
+          </v-slide-x-transition>
+        </v-container>
+      </v-content>
+      <bottom-bar class="hidden-sm-and-up"></bottom-bar>
+    </v-app>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  import NavBar from '@/components/NavBar.vue'
+  import BottomBar from '@/components/BottomBar.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      NavBar, BottomBar
     }
   }
-}
+</script>>
+
+<style lang="scss">
+  .container.fluid {
+    height: 100%;
+    padding: 0;
+  }
 </style>
