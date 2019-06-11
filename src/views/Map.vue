@@ -85,21 +85,25 @@
         this.isAddDialogDisplayed = event;
       },
       addHello(event) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                this.$firestoreRefs.hellos.add({
-                    username: event.username,
-                    framework: event.framework,
-                    message: event.message,
-                    time: Math.floor(Date.now() / 1000),
-                    location: {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude
-                    }
-                })
-            });
-        }
-        this.isAddDialogDisplayed = false
+        let t = this
+        navigator.geolocation.getCurrentPosition(function(position) {
+          t.$firestoreRefs.hellos.add({
+              username: event.username,
+              framework: event.framework,
+              message: event.message,
+              time: Math.floor(Date.now() / 1000),
+              location: {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+              }
+          })
+          t.isAddDialogDisplayed = false
+        }, function() {
+            console.log('Error while fetching position')
+        }, {
+          timeout: 5000,
+          enableHighAccuracy: true
+        })
       },
       toggleInfoWindow: function(marker) {
         if (this.infoWindowMarker && this.infoWindowMarker.id == marker.id) {

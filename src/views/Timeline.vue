@@ -37,7 +37,6 @@
     },
     methods: {
       formatDateTime(timestamp) {
-        console.log(timestamp)
         let datetime = new Date(timestamp * 1000);
         return datetime.getFullYear() + '-' + datetime.getMonth() + '-' + datetime.getDate()
       }
@@ -63,6 +62,9 @@
       color: #aaa;
       font-size: 0.9em;
     }
+
+    position: absolute;
+    overflow: scroll;
 
     padding: 15px;
     height: 100%;

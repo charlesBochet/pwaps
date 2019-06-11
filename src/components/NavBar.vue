@@ -15,8 +15,17 @@
     <v-btn icon aria-label="go-to-code" href="https://github.com/charlesBochet/pwaps" target="_blank">
         <v-icon>code</v-icon>
     </v-btn>
+    <install-button></install-button>
   </v-toolbar>
 </template>
+
+<script>
+  import InstallButton from './InstallButton'
+  export default {
+    name: 'nav-bar',
+    components: { InstallButton },
+  }
+</script>
 
 <style lang="scss" scoped>
     a {

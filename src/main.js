@@ -5,7 +5,6 @@ import Vuetify from 'vuetify'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import { firestorePlugin } from 'vuefire'
 
-
 import './registerServiceWorker'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -20,7 +19,16 @@ Vue.use(firestorePlugin)
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+
+const startApp = () => {
+    new Vue({
+        router,
+        render: h => h(App)
+    }).$mount('#app')
+};
+
+if (window.cordova) {
+    document.addEventListener('deviceready', startApp, false);
+} else {
+    startApp();
+}
