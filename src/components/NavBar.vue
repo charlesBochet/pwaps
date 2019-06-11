@@ -12,7 +12,7 @@
     <v-toolbar-items class="hidden-xs-only">
       <v-btn aria-label="stats-link" flat><router-link class="white--text" to="/stats">Stats</router-link></v-btn>
     </v-toolbar-items>
-    <v-btn icon aria-label="go-to-code">
+    <v-btn icon aria-label="go-to-code" href="https://github.com/charlesBochet/pwaps" target="_blank">
         <v-icon>code</v-icon>
     </v-btn>
   </v-toolbar>
