@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && rm -rf www && mv dist www",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -37,15 +37,5 @@
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
-  },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-geolocation": {}
-    },
-    "platforms": [
-      "android",
-      "ios"
-    ]
   }
 }
